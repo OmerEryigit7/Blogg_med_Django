@@ -1,8 +1,6 @@
 <h1>Blogg</h1>
 <ul>
 {% for post in object_list %}
-    <li>{{post.title}} - {{post.author.first_name}} {{post.author.last_name}}<br/>
-    {{post.body}}</li>
-
+    <li> <a href="{% url 'blog_article_content' post.pk%}"> {{post.title}} </a> - {{post.author.first_name}} {{post.author.last_name}} {{post.date}}<br/></li>
 {% endfor %}
 </ul>
