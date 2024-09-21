@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+.indented-text {
+    position: relative;
+    width: 50vw;
+}
+
+.main-container {
+    width: 60vw;
+    left: 20vw;
+    background-color: white;
+    box-shadow: 0 0 4px #606060;
+    position: relative;
+    min-height: 30vh;
+    border-radius: 10px;
+}
+
+.post-list {
+    padding-top: 3vh;
+    padding-left: 3vw;
+}
+
+li {
+    text-decoration: none;
+}
+
+a {
+    color: #3395ac;
+    text-decoration: none;
+}

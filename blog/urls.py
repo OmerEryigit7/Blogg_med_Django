@@ -21,4 +21,5 @@ from .views import blog_article_content
 urlpatterns = [
     path('', Home.as_view(), name="home"),
     path('artikkel/<int:pk>', blog_article_content.as_view(), name="blog_article_content"),
+    path('artikkel/<int:pk>', blog_article_content.as_view(), name="blog_article_content"),
 ]
