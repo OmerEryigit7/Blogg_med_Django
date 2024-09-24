@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{post.title}}</title>
 </head>
 <body>
     <h1>{{post.title}} - {{post.date}}</h1>
-    <p class="indented-text">{{post.body}}</p>
+    <div class="indented-text">    
+        <p>{{post.body}}</p>
+    </div>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css'%}">
 </body>
