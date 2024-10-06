@@ -15,3 +15,8 @@ class create_post(CreateView):
     model = Post
     template_name = 'create_post.html'
     fields = '__all__'
+
+class login(CreateView):
+    model = Post
+    template_name = 'login.html'
+    fields ='__all__'

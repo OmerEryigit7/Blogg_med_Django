@@ -40,10 +40,12 @@ a:hover {
     background-color: #343a40;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;
+    height: fit-content;
+    display: flex;
+    flex-flow: row;
 }
 
 .navbar p {
-    height: 100%;
     width: fit-content;
     margin-left: 1vw;
 }

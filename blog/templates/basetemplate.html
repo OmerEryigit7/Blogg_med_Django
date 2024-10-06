@@ -1,0 +1,8 @@
+<div class="navbar">
+    <p><a href="{% url 'home' %}">Hjem</a></p>
+    <p><a href="{% url 'create_post' %}">Nytt innlegg</a></p>
+</div>
+{% block defaultnavbar %}
+{% endblock %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}">

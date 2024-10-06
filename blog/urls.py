@@ -18,9 +18,11 @@ from django.urls import path
 from .views import Home
 from .views import blog_article_content
 from .views import create_post
+from .views import login
 
 urlpatterns = [
-    path('', Home.as_view(), name="home"),
+    path('hjem/', Home.as_view(), name="home"),
     path('artikkel/<int:pk>', blog_article_content.as_view(), name="blog_article_content"),
     path('nyttinnlegg/', create_post.as_view(), name='create_post'),
+    path('logg_inn/', login.as_view(), name='logg_inn'),
 ]

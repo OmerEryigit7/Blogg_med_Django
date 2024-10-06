@@ -1,4 +1,4 @@
-{% extends 'basetemplate.html'%}
+{% extends 'basetemplate.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +8,6 @@
 </head>
 <body>
     {% block defaultnavbar %}
-        <div>
-            <form method="POST">
-                {% csrf_token %}
-                {{form.as_p}}
-                <input type="submit">
-            </form>
-        </div>    
     {% endblock %}
 </body>
 </html>
