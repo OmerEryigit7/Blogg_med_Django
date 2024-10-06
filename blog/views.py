@@ -6,6 +6,7 @@ from.models import Post
 class Home(ListView):
     model = Post
     template_name = 'home.html'
+    ordering = ['-id']
 
 class blog_article_content(DetailView):
     model = Post
@@ -15,8 +16,3 @@ class create_post(CreateView):
     model = Post
     template_name = 'create_post.html'
     fields = '__all__'
-
-class login(CreateView):
-    model = Post
-    template_name = 'login.html'
-    fields ='__all__'
