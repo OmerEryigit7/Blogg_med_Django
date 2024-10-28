@@ -8,13 +8,17 @@
 </head>
 <body>
     {% block defaultnavbar %}
-        <div>
-            <form method="POST">
-                {% csrf_token %}
-                {{form.as_p}}
-                <input type="submit">
-            </form>
-        </div>    
+    {% if user.is_authenticated %}
+    <p>Du er allerede logget inn!</p>
+    {% else %}
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit">
+        </form>
+    </div>
+    {% endif %}
     {% endblock %}
 </body>
 </html>
