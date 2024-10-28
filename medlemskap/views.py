@@ -15,8 +15,8 @@ class LogoutView(View):
     template_name = 'registration/logout_confirmation.html'
 
     def post(self, request, *args, **kwargs):
-        logout(request)  # Log out the user
-        return redirect('home')  # Redirect to the home page after logging out
+        logout(request)
+        return redirect('home')
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)  # Render the logout confirmation page
+        return render(request, self.template_name)

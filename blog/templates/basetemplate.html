@@ -1,9 +1,12 @@
 <div class="navbar">
     <p><a href="{% url 'home' %}">Hjem</a></p>
-    <p><a href="{% url 'create_post' %}">Nytt innlegg</a></p>
-    <p><a href="{% url 'sign_up' %}">Ny bruker</a></p>
-    <p><a href="{% url 'login' %}">Logg inn</a></p>
-    <p><a href="{% url 'logout_confirmation' %}">Logg ut</a></p>
+    {% if not user.is_authenticated %}
+        <p><a href="{% url 'sign_up' %}">Ny bruker</a></p>
+        <p><a href="{% url 'login' %}">Logg inn</a></p>
+    {% elif user.is_authenticated %}
+        <p><a href="{% url 'create_post' %}">Nytt innlegg</a></p>
+        <p><a href="{% url 'logout_confirmation' %}">Logg ut</a></p>
+    {% endif %}
 </div>
 {% block defaultnavbar %}
 {% endblock %}

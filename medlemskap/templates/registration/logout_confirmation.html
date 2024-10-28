@@ -7,12 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Logout</h1>
-    <p>Are you sure you want to logout?</p>
-    <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-    <input type="submit" value="Logout">
-    </form>
+    {% block defaultnavbar %}
+        <h1>Logout</h1>
+        <p>Er du sikker på at du vil logge deg ut?</p>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+        <input type="submit" value="Logout">
+        </form>
     {% endblock %}
 </body>
 </html>
