@@ -12,7 +12,7 @@
         <div class="main-container">
             <div class="indented-text post-list">
                 {% for post in object_list %}
-                    <p> <a href="{% url 'blog_article_content' post.pk %}"> {{post.title}} </a> - {{post.author.first_name}} {{post.author.last_name}} {{post.date}}<br/></p>
+                    <p> <a href="{% url 'blog_article_content' post.pk %}"> {{post.title}} </a> - {{post.author}} {{post.date}}<br/></p>
                 {% endfor %}
             </div>
         </div>

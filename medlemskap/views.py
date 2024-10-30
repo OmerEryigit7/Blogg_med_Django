@@ -14,9 +14,9 @@ class register(CreateView):
 class LogoutView(View):
     template_name = 'registration/logout_confirmation.html'
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request):
         logout(request)
         return redirect('home')
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
         return render(request, self.template_name)
