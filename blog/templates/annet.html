@@ -1,4 +1,12 @@
-{% extends 'basetemplate.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'basetemplate.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,14 +30,16 @@
                 </div>
             </div>
             <div class="post-list">
-                <h1>Nye innlegg</h1>
+                <h1>Alle innlegg</h1>
                 <div class="main-container indented-text">
-                    {% for post in object_list %}
-                           <p> <a href="{% url 'blog_article_content' post.pk %}"> {{post.title}} </a> - {{post.author}} {{post.date}}<br/></p>
+                    {% for post in object_list %} 
+                        <p><a href="{% url 'blog_article_content' post.pk %}">{{ post.title }}</a> - {{ post.author }} {{ post.date }}<br/></p>
                     {% endfor %}
                 </div>
             </div>
         </div>
     {% endblock %}
+</body>
+</html>
 </body>
 </html>
