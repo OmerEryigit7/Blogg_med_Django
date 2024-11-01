@@ -2,3 +2,4 @@ venv
 blog/__pycache__
 django_blog/__pycache__
 medlemskap/__pycache__
+.env
