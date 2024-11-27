@@ -10,6 +10,10 @@
     {% block defaultnavbar %}
         <h1>{{post.title}} - {{post.date}}</h1>
         <p class="indented-text">{{post.body}}</p>
+        {% if post.author == request.user %}
+            <button>Rediger innlegg</button>
+            <button>Slett innlegg</button>
+        {% endif %}
     {% endblock %}
 </body>
 </html>
