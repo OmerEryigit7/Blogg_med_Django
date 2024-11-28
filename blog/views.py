@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import Post, Category
 from django.urls import reverse_lazy
 
@@ -22,6 +22,11 @@ class create_post(CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    
+class PostDeleteView(DeleteView):
+    model = Post
+    template_name = 'delete.html'
+    success_url = reverse_lazy('home')
 
 def economy_posts(request):
     posts = Post.objects.filter(categories__name='Økonomi')

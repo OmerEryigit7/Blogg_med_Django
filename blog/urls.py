@@ -18,7 +18,7 @@ from django.urls import path
 from .views import Home
 from .views import blog_article_content
 from .views import create_post
-from .views import economy_posts, school_posts, it_posts, technology_posts, other_posts
+from .views import economy_posts, school_posts, it_posts, technology_posts, other_posts, PostDeleteView
 
 urlpatterns = [
     path('', Home.as_view(), name="home"),
@@ -28,5 +28,6 @@ urlpatterns = [
     path('skole/', school_posts, name="skole"),
     path('it/', it_posts, name="it"),
     path('teknologi/', technology_posts, name="teknologi"),
-    path('alle_innlegg/', other_posts, name="annet")
+    path('alle_innlegg/', other_posts, name="annet"),
+    path('slett_innlegg/<int:pk>/', PostDeleteView.as_view(), name="delete")
 ]
