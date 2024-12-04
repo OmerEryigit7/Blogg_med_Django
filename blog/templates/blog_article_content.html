@@ -11,8 +11,8 @@
         <h1>{{post.title}} - {{post.date}}</h1>
         <p class="indented-text">{{post.body}}</p>
         {% if post.author == request.user %}
-            <button><a href="">Rediger innlegg</a></button>
-            <button><a href="{% url 'delete' post.pk %}">Slett innlegg</a></button>
+            <a href=""><button>Rediger innlegg</button></a>
+            <a href="{% url 'delete' post.pk %}"><button>Slett innlegg</button></a>
         {% endif %}
     {% endblock %}
 </body>

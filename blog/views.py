@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import Post, Category
 from django.urls import reverse_lazy
+from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 class Home(ListView):
@@ -27,6 +29,15 @@ class PostDeleteView(DeleteView):
     model = Post
     template_name = 'delete.html'
     success_url = reverse_lazy('home')
+
+    def dispatch(self, request, *args, **kwargs):
+        post = self.get_object()
+
+        if post.author != request.user:
+            messages.error(request, "Hva faen")
+            return HttpResponseRedirect(self.success_url)
+        
+        return super().dispatch(request, *args, **kwargs)
 
 def economy_posts(request):
     posts = Post.objects.filter(categories__name='Økonomi')

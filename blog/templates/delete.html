@@ -8,13 +8,15 @@
 </head>
 <body>
     {% block defaultnavbar %}
+        <h1>Er du sikker på at du vil slette {{ object }}?</h1>
         <div>
-            <form method="POST">
+            <a href="{% url 'home' %}"><button>Nei, gå tilbake</button></a>
+            <form method="POST" class="dangerous-button">
                 {% csrf_token %}
                 {{form.as_p}}
-                <input type="submit">
+                <button type="submit">Ja, Slett</button>
             </form>
-        </div>    
+        </div>
     {% endblock %}
 </body>
 </html>
