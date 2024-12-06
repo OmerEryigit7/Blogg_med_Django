@@ -6,6 +6,7 @@
     {% elif user.is_authenticated %}
         <p><a href="{% url 'create_post' %}">Nytt innlegg</a></p>
         <p><a href="{% url 'logout_confirmation' %}">Logg ut</a></p>
+        <p><a href="{% url 'profil.html'}">Profil</a></p>
     {% endif %}
 </div>
 {% block defaultnavbar %}

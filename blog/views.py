@@ -45,16 +45,19 @@ def economy_posts(request):
 
 def school_posts(request):
     posts = Post.objects.filter(categories__name='Skole')
-    return render(request, 'økonomi.html', {'object_list': posts})
+    return render(request, 'skole.html', {'object_list': posts})
 
 def it_posts(request):
     posts = Post.objects.filter(categories__name='IT')
-    return render(request, 'økonomi.html', {'object_list': posts})
+    return render(request, 'it.html', {'object_list': posts})
 
 def technology_posts(request):
     posts = Post.objects.filter(categories__name='Teknologi')
-    return render(request, 'økonomi.html', {'object_list': posts})
+    return render(request, 'teknologi.html', {'object_list': posts})
 
 def other_posts(request):
     posts = Post.objects.filter(categories__name='Annet')
-    return render(request, 'økonomi.html', {'object_list': posts})
+    return render(request, 'annet.html', {'object_list': posts})
+
+def user_profile(request, username):
+    pass
