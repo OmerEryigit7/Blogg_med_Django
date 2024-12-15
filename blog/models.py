@@ -17,5 +17,16 @@ class Post(models.Model):
 
     def __str__(self):
         return str(self.title) + '  -  ' + str(self.author)
+    
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
+    comment_author = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.TextField()
+    date = models.DateField(default=timezone.now)
+
+    def __str__(self):
+        return '%s - %s - %s' % (self.post.title, self.comment_author, self.date)
+
+
 
 # Create your models here.

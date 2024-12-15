@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, DeleteView
-from .models import Post, Category
+from .models import Post, Category, Comment
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -38,6 +38,10 @@ class PostDeleteView(DeleteView):
             return HttpResponseRedirect(self.success_url)
         
         return super().dispatch(request, *args, **kwargs)
+    
+class comment(DetailView):
+    model = Comment
+    template_name = 'blog_article_content.html'
 
 def economy_posts(request):
     posts = Post.objects.filter(categories__name='Økonomi')
