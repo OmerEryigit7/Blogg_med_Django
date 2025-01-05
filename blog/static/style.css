@@ -88,3 +88,18 @@ body {
 .dangerous-button {
     color: red;
 }
+
+.kommentar {
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background-color: whitesmoke;
+    width: 20vw;
+    border-radius: 1vh;
+}
+
+.kommentar-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}

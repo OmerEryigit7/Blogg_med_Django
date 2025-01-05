@@ -24,7 +24,7 @@ class Comment(models.Model):
     body = models.TextField()
     date = models.DateField(default=timezone.now)
 
-    def __str__(self):
+    def __str__(self): 
         return '%s - %s - %s' % (self.post.title, self.comment_author, self.date)
 
 

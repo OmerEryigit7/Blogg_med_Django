@@ -39,9 +39,19 @@ class PostDeleteView(DeleteView):
         
         return super().dispatch(request, *args, **kwargs)
     
-class comment(DetailView):
+class comment(CreateView):
     model = Comment
-    template_name = 'blog_article_content.html'
+    fields = ['body']
+    template_name = 'newcomment.html'
+
+    def get_success_url(self):
+        return reverse_lazy('artikkel', kwargs={'pk': self.object.post.pk})
+
+    def form_valid(self, form):
+        form.instance.comment_author = self.request.user
+        form.instance.post = get_object_or_404(Post, pk=self.kwargs['pk'])
+        return super().form_valid(form)
+
 
 def economy_posts(request):
     posts = Post.objects.filter(categories__name='Økonomi')

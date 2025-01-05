@@ -18,11 +18,11 @@ from django.urls import path
 from .views import Home
 from .views import blog_article_content
 from .views import create_post
-from .views import economy_posts, school_posts, it_posts, technology_posts, other_posts, PostDeleteView, user_profile
+from .views import economy_posts, school_posts, it_posts, technology_posts, other_posts, PostDeleteView, user_profile, comment
 
 urlpatterns = [
     path('', Home.as_view(), name="home"),
-    path('artikkel/<int:pk>', blog_article_content.as_view(), name="blog_article_content"),
+    path('artikkel/<int:pk>/', blog_article_content.as_view(), name="blog_article_content"),
     path('nyttinnlegg/', create_post.as_view(), name='create_post'),
     path('økonomi/', economy_posts, name="økonomi"),
     path('skole/', school_posts, name="skole"),
@@ -30,5 +30,6 @@ urlpatterns = [
     path('teknologi/', technology_posts, name="teknologi"),
     path('alle_innlegg/', other_posts, name="annet"),
     path('slett_innlegg/<int:pk>/', PostDeleteView.as_view(), name="delete"),
-    path('profil/<str:username>/', user_profile, name="profil")
+    path('profil/<str:username>/', user_profile, name="profil"),
+    path('artikkel/<int:pk>/kommenter/', comment.as_view(), name="newcomment")
 ]

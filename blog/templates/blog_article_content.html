@@ -18,12 +18,19 @@
     {% if not post.comments.all %}
         <p>Ganske tomt her...</p>
     {% else %}
-        {% for comment in post.comments.all %}
-            {{ comment.comment_author }} - {{ comment.date }}
-            <br>
-            {{ comment.body }}
-        {% endfor %}
+        <div class="kommentar-container">
+            {% for comment in post.comments.all %}
+                <div class="kommentar">
+                {{ comment.comment_author }} - {{ comment.date }}
+                <br>
+                {{ comment.body }}
+                </div>
+            {% endfor %}
     {% endif %}
+        <div>
+            <a href="{% url 'newcomment' pk=object.pk %}">Kommenter</a>
+        </div>
+        </div>
     {% endblock %}
 </body>
 </html>
