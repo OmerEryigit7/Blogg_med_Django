@@ -9,25 +9,8 @@
 <body>
     {% block defaultnavbar %}
         <div class="content-container">
-            <div class="categories-container">
-                <h1>Kategorier</h1>
-                <div class="categories-list">
-                    <div class="categories-text">
-                        <p><a href="{% url 'økonomi' %}">Økonomi<a></p>
-                        <p><a href="{% url 'skole' %}">Skole</a></p>
-                        <p><a href="{% url 'it' %}">IT</a></p>
-                        <p><a href="{% url 'teknologi' %}">Teknologi</a></p>
-                        <p><a href="{% url 'annet' %}">Andre innlegg</a></p>
-                    </div>
-                </div>
-            </div>
             <div class="post-list">
-                <h1>Profil</h1>
-                <div class="main-container indented-text">
-                    {% for post in object_list %}
-                        <p><a href="{% url 'blog_article_content' post.pk %}">{{ post.title }}</a> - {{ post.author }} {{ post.date }}<br/></p>
-                    {% endfor %}
-                </div>
+                <h1>{}</h1>
             </div>
         </div>
     {% endblock %}

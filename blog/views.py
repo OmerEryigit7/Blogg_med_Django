@@ -4,6 +4,7 @@ from .models import Post, Category, Comment
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 
 # Create your views here.
 class Home(ListView):
@@ -74,4 +75,12 @@ def other_posts(request):
     return render(request, 'annet.html', {'object_list': posts})
 
 def user_profile(request, username):
-    pass
+    
+    # Get the user by username
+    user = get_object_or_404(User, username=username)
+
+    # Get posts created by this user
+    posts = Post.objects.filter(author=user)
+
+    # Render the profile page
+    return render(request, 'profil.html', {'profile_user': user, 'posts': posts})
